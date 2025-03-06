@@ -17,7 +17,7 @@ public class RestProductController {
     @Autowired
     private IProductService productService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<Page<Product>> searchNameAndCategoryId(@RequestParam(required = false, defaultValue = "") String name,
                                                                  @RequestParam(required = false) Integer categoryId,
                                                                  @RequestParam(required = false, defaultValue = "0") int page,
@@ -30,7 +30,7 @@ public class RestProductController {
         return new ResponseEntity<>(searchByNameAndCategoryIdContaining, HttpStatus.OK);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<?> saveProduct(@RequestBody Product product) {
         try {
            productService.addProduct(product);
